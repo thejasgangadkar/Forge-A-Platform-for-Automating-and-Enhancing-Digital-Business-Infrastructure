@@ -1,0 +1,17 @@
+/* Logo lockup: mark + wordmark. Sizes come from the component so the two stay
+   in proportion wherever the logo is placed. */
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  line-height: 1;
+}
+
+.word {
+  font-family: var(--font);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: inherit;
+  line-height: 1;
+}

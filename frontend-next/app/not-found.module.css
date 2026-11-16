@@ -1,0 +1,51 @@
+/* 404 — same glass system as the rest of the app. */
+
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 460px;
+  padding: 3rem 2.6rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.code {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  margin-bottom: 0.9rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.7rem;
+}
+
+.body {
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

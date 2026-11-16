@@ -1,0 +1,216 @@
+/* Login — light liquid-morphism. Class names match app/login/page.js. */
+
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1.5rem;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+/* The morphism background, expressed locally so it can sit at z-index 0. */
+.glowBg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(70px);
+}
+
+.glowBg::before,
+.glowBg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  animation: loginBlob 26s ease-in-out infinite alternate;
+}
+
+.glowBg::before {
+  width: 55vmax; height: 55vmax;
+  top: -18vmax; left: -12vmax;
+  background: radial-gradient(circle at 40% 40%, rgba(167, 156, 245, 0.75), rgba(167, 156, 245, 0) 70%);
+}
+
+.glowBg::after {
+  width: 48vmax; height: 48vmax;
+  bottom: -16vmax; right: -10vmax;
+  background: radial-gradient(circle at 55% 45%, rgba(255, 168, 212, 0.7), rgba(255, 168, 212, 0) 70%);
+  animation-delay: -8s;
+}
+
+@keyframes loginBlob {
+  from {
+    border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    border-radius: 58% 42% 40% 60% / 42% 58% 42% 58%;
+    transform: translate3d(3%, 4%, 0) scale(1.08);
+  }
+}
+
+.back {
+  position: fixed;
+  top: 1.8rem;
+  left: 2rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.back:hover { color: var(--primary); }
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 2.8rem 2.4rem;
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-xl);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+  color: var(--text);
+}
+
+.card h1 {
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.sub {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+  line-height: 1.55;
+}
+
+.submit {
+  width: 100%;
+  padding: 0.9rem;
+}
+
+.google {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.google:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-hi);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-mute);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.form input {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text);
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form input::placeholder { color: var(--text-mute); }
+
+.form input:focus {
+  border-color: var(--primary-soft);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--glow);
+}
+
+.err {
+  background: rgba(255, 92, 122, 0.1);
+  border: 1px solid rgba(255, 92, 122, 0.3);
+  color: #b02a4a;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.switch {
+  margin-top: 1.6rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.switch button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.switch button:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .glowBg::before,
+  .glowBg::after { animation: none; }
+}

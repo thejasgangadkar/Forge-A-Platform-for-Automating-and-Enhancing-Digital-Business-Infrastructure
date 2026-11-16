@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+python-dotenv
+supabase
+sqlalchemy
+groq
+openai
+chromadb
+requests
+beautifulsoup4
+playwright
+pydantic
+pydantic-settings
+crawl4ai
